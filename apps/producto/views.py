@@ -92,15 +92,18 @@ class AddCarrito(APIView):
         if orden.cantidad_total >= 3 and orden.cantidad_total <= 5:
             orden.descuento_total = 0.1 * orden.total
             orden.total = orden.total - orden.descuento_total
+            messages.add_message(request, messages.SUCCESS, 'Has obtenido un 10% de descuento')
         elif orden.cantidad_total >= 6 and orden.cantidad_total <= 8:
             orden.descuento_total = 0.15 * orden.total
             orden.total = orden.total - orden.descuento_total
+            messages.add_message(request, messages.SUCCESS, 'Has obtenido un 15% de descuento')
         elif orden.cantidad_total >= 9:
             producto_menor_precio = Producto.objects.filter(
                 producto__in=Carrito.objects.filter(
                     cliente=cliente, is_created=False)).order_by('precio').first()
             orden.descuento_total = producto_menor_precio.precio
             orden.total = orden.total - orden.descuento_total
+            messages.add_message(request, messages.SUCCESS, 'Has obtenido un descuento del producto de menor precio')
         orden.save()
         messages.add_message(request, messages.SUCCESS, 'Producto agregado al carrito')
         return redirect('producto-list')
@@ -113,15 +116,18 @@ class ProductoCarritoList(APIView):
         productos = Producto.objects.filter(producto__in=carritos)
         serializer = ProductoSerializer(productos, many=True)
         orden = Orden.objects.filter(cliente=cliente).last()
-        return render(request, 'carrito_compra.html',
-                      {
-                          'productos': serializer.data,
-                          'cliente': cliente,
-                          'carritos': carritos,
-                          'orden': orden,
-                          'total': orden.total,
-                          'descuento': orden.descuento_total,
-                      })
+        if orden:
+            return render(request, 'carrito_compra.html',
+                          {
+                              'productos': serializer.data,
+                              'cliente': cliente,
+                              'carritos': carritos,
+                              'orden': orden,
+                              'total': orden.total,
+                              'descuento': orden.descuento_total,
+                          })
+        else:
+            return redirect('producto-list')
 
 
 class ProductoCarritoDelete(APIView):
