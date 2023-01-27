@@ -1,27 +1,22 @@
-import os
-import django
+import sys, os, django
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'config.settings')
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "config.settings")
 django.setup()
 
 from apps.producto.models import Producto
-from constanst import PRODUCTOS
+from constanst import PRODUCTOS_LOAD
 
 
-def load_products():
-    for producto in PRODUCTOS:
-        if not Producto.objects.filter(nombre=producto['nombre']).exists():
-            Producto.objects.create(
-                nombre=producto['nombre'],
-                precio=producto['precio'],
-                stock=producto['stock'],
-                imagen=producto['imagen'],
-                descripcion=producto['descripcion']
-            )
-            print(f"Producto {producto['nombre']} creado")
-        else:
-            print(f"Producto {producto['nombre']} ya existe")
+def load_productos():
+    for producto in PRODUCTOS_LOAD:
+        Producto.objects.create(nombre=producto['nombre'],
+                                precio=producto['precio'],
+                                stock=producto['stock'],
+                                imagen=producto['imagen'],
+                                descripcion=producto['descripcion'])
+        print('Producto creado: {}'.format(producto['nombre']))
 
 
 if __name__ == '__main__':
-    load_products()
+    load_productos()

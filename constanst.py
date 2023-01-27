@@ -1,10 +1,14 @@
-PRODUCTOS = [
+PRODUCTOS_LOAD = [
     {
         'nombre': 'Samsung Galaxy S21 Ultra 5G',
         'precio': 2000000,
         'stock': 10,
         'imagen': 'https://i0.wp.com/conectamos.shop/wp-content/uploads/2021/11/samsung_galaxy_s21_ultra_g998_12gb_128gb_03_negro_ad_l.jpg?fit=800%2C800&ssl=1',
-        'descripcion': 'El Samsung Galaxy S21 Ultra 5G es un smartphone Android de gama alta con características interesantes. Dispone de una pantalla de 6.8 pulgadas con resolución Quad HD+ y una tasa de refresco de 120 Hz. Su procesador es un Exynos 2100 de ocho núcleos y su memoria RAM es de 12 GB. Su cámara principal es de 108 MP con estabilización óptica de imagen, mientras que la cámara frontal es de 40 MP. Su batería es de 5000 mAh con carga rápida de 25W y carga inalámbrica de 15W. Incluye lector de huellas en pantalla, NFC y conectividad 5G.'
+        'descripcion': 'El Samsung Galaxy S21 Ultra 5G es un smartphone Android de gama alta con características interesantes. '
+                       'Dispone de una pantalla de 6.8 pulgadas con resolución Quad HD+ y '
+                       'una tasa de refresco de 120 Hz. Su procesador es un Exynos 2100 de ocho núcleos '
+                       'y su memoria RAM es de 12 GB. Su cámara principal es de 108 MP con estabilización óptica de imagen, '
+                       'mientras que la cámara frontal es de 40 MP. Su batería es de 5000 mAh con carga rápida de 25W y carga inalámbrica de 15W. Incluye lector de huellas en pantalla, NFC y conectividad 5G.'
     },
     {
         'nombre': 'Samsung Galaxy S21 5G',

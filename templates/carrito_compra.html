@@ -97,19 +97,16 @@
                                 <input type="hidden" name="id" value="{{ producto.id }}">
                                 <button type="submit" class="btn btn-danger">Eliminar</button>
                             </form>
-
                         </td>
                     </tr>
                 {% endfor %}
                 </tbody>
-            <hr>
+                <hr>
             </table>
         </div>
-    <hr>
-
+        <hr>
     </div>
-
-<!--mostrar la informacion detallada de la orden de compra-->
+    <!--mostrar la informacion detallada de la orden de compra-->
     <div class="row">
         <div class="col-sm-push-12">
             <h1 class="text-center">Detalle De La Orden</h1>
@@ -123,64 +120,54 @@
                 </thead>
                 <tbody>
                 <tr>
-                    <td > {{ orden.cantidad_total }}</td>
+                    <td> {{ orden.cantidad_total }}</td>
                     <td>$ {{ orden.descuento_total }}</td>
                     <td>$ {{ orden.total |floatformat:0|intcomma }}</td>
                 </tr>
                 </tbody>
             </table>
         </div>
-
-
-
-
+        <br>
+        <a href="{% url 'producto-list' %}" class="btn btn-success">Comprar</a>
+    </div>
     <br>
-    <a href="{% url 'producto-list' %}" class="btn btn-success">Comprar</a>
-</div>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
 
-<footer id="footer">
-    <div class="section">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-3 col-xs-6">
-                    <div class="footer">
-                        <h3 class="footer-title">Descripcion</h3>
-                        <p>Test de Desarrollo</p>
-                        <ul class="footer-links">
-                            <li><a href="#"><i class="fa fa-map-marker"></i>Bogota-Colombia</a></li>
-                            <li><a href="#"><i class="fa fa-phone"></i>+573014613592</a></li>
-                            <li><a href="#"><i class="fa fa-envelope-o"></i>
-                            </a>juanjo0216@gmail.com
-                            </li>
-                        </ul>
+    <footer id="footer">
+        <div class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 col-xs-6">
+                        <div class="footer">
+                            <h3 class="footer-title">Descripcion</h3>
+                            <p>Test de Desarrollo</p>
+                            <ul class="footer-links">
+                                <li><a href="#"><i class="fa fa-map-marker"></i>Bogota-Colombia</a></li>
+                                <li><a href="#"><i class="fa fa-phone"></i>+573014613592</a></li>
+                                <li><a href="#"><i class="fa fa-envelope-o"></i>
+                                </a>juanjo0216@gmail.com
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</footer>
-<script src="{% static 'js/jquery.min.js' %}"></script>
-<script src="{% static 'js/bootstrap.min.js' %}"></script>
-<script src="{% static 'js/slick.min.js' %}"></script>
-<script src="{% static 'js/nouislider.min.js' %}"></script>
-<script src="{% static 'js/jquery.zoom.min.js' %}"></script>
-<script src="{% static 'js/main.js' %}"></script>
+    </footer>
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/slick.min.js' %}"></script>
+    <script src="{% static 'js/nouislider.min.js' %}"></script>
+    <script src="{% static 'js/jquery.zoom.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
 
 </body>
 </html>
