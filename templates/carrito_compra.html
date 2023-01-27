@@ -93,9 +93,7 @@
                         <td>{{ carrito.cantidad }}</td>
                         <td> $ {{ carrito.subtotal |floatformat:0|intcomma }}</td>
                         <td>
-
-
-                            <form action="/eliminar_producto" method="post">
+                            <form action="{% url 'producto-carrito-delete' carrito.id %}" method="get">
                                 <input type="hidden" name="id" value="{{ producto.id }}">
                                 <button type="submit" class="btn btn-danger">Eliminar</button>
                             </form>
@@ -104,14 +102,38 @@
                     </tr>
                 {% endfor %}
                 </tbody>
+            <hr>
             </table>
-
         </div>
+    <hr>
+
     </div>
 
-    <h3>
-        Total: $ {{ total |floatformat:0|intcomma }}
-    </h3>
+<!--mostrar la informacion detallada de la orden de compra-->
+    <div class="row">
+        <div class="col-sm-push-12">
+            <h1 class="text-center">Detalle De La Orden</h1>
+            <table class="table table-hover table-striped">
+                <thead>
+                <tr>
+                    <th scope="col">Cantidad De Productos</th>
+                    <th scope="col">Descuento</th>
+                    <th scope="col">Total A Pagar</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td > {{ orden.cantidad_total }}</td>
+                    <td>$ {{ orden.descuento_total }}</td>
+                    <td>$ {{ orden.total |floatformat:0|intcomma }}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+
+
     <br>
     <a href="/comprar" class="btn btn-success">Comprar</a>
 </div>

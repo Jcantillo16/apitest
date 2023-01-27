@@ -1,7 +1,7 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from .models import Carrito
+from .models import Carrito, Orden
 from .serializers import CarritoSerializer
 from django.http import Http404
 from django.shortcuts import render, redirect
@@ -36,15 +36,10 @@ class CarritoDetail(APIView):
                       })
 
 
-# obtener la cantidad de cada producto en el carrito.
-class CarritoCantidad(APIView):
+class TotalOrder(APIView):
     def get(self, request, pk):
         cliente = ClienteLogueado()
         cliente = cliente.get(request).id
         carrito = Carrito.objects.get(cliente=cliente)
-        serializer = CarritoSerializer(carrito)
-        return render(request, 'carrito_compra.html',
-                      {
-                          'carrito': serializer.data,
-                          'cliente': cliente
-                      })
+        orden = Orden.objects.get(carrito=carrito)
+        print(orden)
