@@ -25,6 +25,8 @@ class Register(APIView):
             carrito = Carrito(cliente=cliente)
             carrito.is_created = True
             carrito.save()
+            cliente.carrito = carrito
+            cliente.save()
             request.session['email'] = request.data.get('email')
             messages.add_message(request, messages.SUCCESS, 'Registro exitoso')
             return redirect('producto-list')

@@ -13,7 +13,7 @@ class Producto(models.Model):
     def __str__(self):
         return self.nombre
 
-    class Meta:
+    class Meta():
         db_table = 'api_producto'
         verbose_name = 'Producto'
         verbose_name_plural = 'Productos'
