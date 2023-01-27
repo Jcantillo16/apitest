@@ -37,7 +37,7 @@
             <div class="row">
                 <div class="col-md-3">
                     <div class="header-logo">
-                        <a href="catalogo.html" class="logo">
+                        <a href="{% url 'producto-list' %}" class="logo">
                             <img src="{% static 'img/logo.jpg' %}"
                                  alt=""
                                  style="width: 105px; height: 100px;
@@ -86,7 +86,6 @@
             {% endfor %}
         </div>
     {% endif %}
-
     <div class="row">
         <div class="col-sm-push-12">
             <h1 class="text-center">Catalogo de productos</h1>
@@ -114,28 +113,10 @@
                         </div>
                     </div>
                 </div>
-            {% endfor %}
+{% endfor %}
         </div>
     </div>
 </div>
-<section class="pagination">
-    <div align="center" class="container">
-        <div align="center" class="row">
-            <div align="center" class="col-sm-push-12">
-                <ul class="pagination pagination-lg">
-                    <li><a href="#">«</a></li>
-                    <li><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li><a href="#">»</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</section>
-
 <footer id="footer">
     <div class="section">
         <div class="container">
@@ -169,8 +150,6 @@
         </div>
     </div>
 </footer>
-
-
 <!-- jQuery Plugins -->
 <script src="{% static 'js/jquery.min.js' %}"></script>
 <script src="{% static 'js/bootstrap.min.js' %}"></script>
